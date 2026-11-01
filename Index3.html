@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery crash Cours | Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(133, 135, 129);
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        .myClass {
+            color: aqua;
+            background: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jquery crash course</h1>
+    </header>
+    <div id="container">
+
+        <input type="button" id="btn" value="buton1" />
+
+        <p id="para1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Officia, odit iure, eos recusandae doloremque pariatur eaque reprehenderit reiciendis,
+            voluptate non sit. Doloremque distinctio placeat iste obcaecati ullam dolorem ipsa blanditiis!</p>
+
+        <p id="para2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Officia, odit iure, eos recusandae doloremque pariatur eaque reprehenderit reiciendis,
+            voluptate non sit. <span>Doloremque distinctio placeat </span> iste obcaecati ullam dolorem ipsa blanditiis!
+        </p>
+
+        <input type="text" id="item2">
+
+        <div id="item"></div>
+        <ul id="list">
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+        </ul>
+
+        <a id="link"
+            href="https://gemini.google.com/app/fcbca8ae31da4b02?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&utm_source=sem&utm_medium=paid-media&utm_campaign=bkws&pt=9008&mt=8&ct=p-growth-sem-bkws&gclsrc=aw.ds&gad_source=1&gad_campaignid=22165684207&gbraid=0AAAAApk5Bhns-8yf8LulEndzGsel_ZwpJ&gclid=CjwKCAjwo5bXBhAEEiwAkgpgXAueUxapKkEVriXGqQam1ma1oRO1A2_3IZd_MapRmYxg7CrCQBEd-xoCVyEQAvD_BwE">Gehihi</a>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#para1').css({ color: 'red', background: 'gray' });
+            // $('#para2').addClass('myClass');
+
+            $('#btn').click(function () {
+                $('#para2').toggleClass('myClass');
+            });
+
+            // $('#item').text('My code');
+            $('#item').html('<h1> My code </h1>');
+
+            $('ul#list').append('<li> test </li>');
+            $('ul#list').prepend('<li> test </li>');
+
+            // $('#para1').appendTo('#para2');
+            // $('#para2').prependTo('#para1');
+
+            $('ul#list').before("<h1>Item</h1>");
+            $('ul#list').after("<h1>Item</h1>");
+
+            // $('ul#list').empty();
+            // $('ul#list').detach();
+
+            $('#link').attr('target', '_blank');
+            $('#link').removeAttr('target', '_blank');
+
+            // $('p').wrap('<h1></h1>');
+            // $('p').wrapAll('<h1></h1>');
+
+            $('#item2').keyup(function (e) {
+                var code = e.which;
+                if (code == 13) {
+                    e.preventDefault();
+                    $('ul').append('<li>' + e.target.value + '</li>');
+                }
+            });
+
+            var arr = ['An', 'Khanh', 'Chi', 'Hao'];
+            $.each(arr, function (i, val) {
+                $('ul#list').append('<li>' + val + '</li>');
+            })
+
+            var list3 = $('ul#list li').toArray();
+            $.each(list3, function (i, val) {
+                console.log(val.innerHTML);
+            })
+        });
+    </script>
+</body>
+
+</html>
