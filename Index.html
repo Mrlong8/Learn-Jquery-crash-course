@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery crash Cours | Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            background: rgb(133, 135, 129);
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jquery crash course</h1>
+    </header>
+    <div id="container">
+        <h1 id="heading1"> Heading 1</h1>
+        <p id="para1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Officia, odit iure, eos recusandae doloremque pariatur eaque reprehenderit reiciendis,
+            voluptate non sit. Doloremque distinctio placeat iste obcaecati ullam dolorem ipsa blanditiis!</p>
+
+        <h1 id="heading2"> Heading 2</h1>
+        <p id="para2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Officia, odit iure, eos recusandae doloremque pariatur eaque reprehenderit reiciendis,
+            voluptate non sit. <span>Doloremque distinctio placeat </span> iste obcaecati ullam dolorem ipsa blanditiis!
+        </p>
+
+        <ul id="list">
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+            <li>list Item</li>
+        </ul>
+
+        <input type="button" value="buton1" />
+        <input type="submit" value="buton1" />
+    </div>
+    <script>
+        // $('h1#heading1').hide();
+        // $('h1'), hide();
+
+        $('p span').css('color', 'red');
+
+        $('ul#list li:first').css('color', 'red')
+        $('ul#list li:last').css('color', 'green')
+
+        $(':submit').hide()
+    </script>
+</body>
+
+</html>
