@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery crash Cours | Selectors</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-size: 17px;
+            font-family: arial;
+            background: #f4f4f4;
+            line-height: 1.5em;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px #000 solid;
+            margin-bottom: 10px;
+        }
+
+        #container {
+            width: 90%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        #box1 {
+            width: 900px;
+            height: 100px;
+            background: #333;
+            color: white;
+        }
+
+        #box2 {
+            width: 900px;
+            height: 100px;
+            background: #333;
+            color: white;
+        }
+
+        #box3 {
+            width: 100px;
+            height: 100px;
+            background: #dd0808;
+            color: white;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jquery crash course</h1>
+    </header>
+    <div id="container">
+
+        <input type="button" id="btnFadeOut" value="Fade out" />
+        <input type="button" id="btnFadeIn" value="Fade IN" />
+        <input type="button" id="btnFadeTog" value="Fade tog" />
+        <hr>
+        <div id="box1">
+            <h1>Box 1</h1>
+        </div>
+
+        <input type="button" id="btnSlideUp" value="Slide Up" />
+        <input type="button" id="btnSlideDown" value="Slide down" />
+        <input type="button" id="btnSlideTog" value="Slide tog" />
+        <hr>
+        <div id="box2">
+            <h1>Box 1</h1>
+        </div>
+
+        <input type="button" id="btnLeft" value="Move left" />
+        <input type="button" id="btnRight" value="Move right" />
+        <input type="button" id="btnTog" value="Move" />
+        <input type="button" id="btnStop" value="Stop" />
+        <hr>
+        <div id="box3">
+            <h1>Box 1</h1>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#btnFadeOut').click(function () {
+                $('#box1').fadeOut(3000, function () {
+                    $('#btnFadeOut').val('Its Gone');
+                });
+            });
+            $('#btnFadeIn').click(function () {
+                $('#box1').fadeIn(3000);
+            });
+            $('#btnFadeTog').click(function () {
+                $('#box1').fadeToggle(100);
+            });
+            $('#btnSlideUp').click(function () {
+                $('#box2').slideUp(1000);
+            });
+            $('#btnSlideDown').click(function () {
+                $('#box2').slideDown(1000);
+            });
+            $('#btnSlideTog').click(function () {
+                $('#box2').slideToggle(1000);
+            });
+
+            $('#btnRight').click(function () {
+                $('#box3').animate({
+                    left: 500,
+                    height: '300px',
+                    width: '300px',
+                    opacity: '0.5'
+
+                });
+            });
+            $('#btnLeft').click(function () {
+                $('#box3').animate({
+                    left: 0,
+                    height: '100px',
+                    width: '100px',
+                    opacity: '1'
+
+                });
+            });
+
+            $('#btnTog').click(function () {
+                var btn = $('#box3');
+                btn.animate({
+                    left: 300
+                });
+                btn.animate({
+                    top: 300
+                });
+                btn.animate({
+                    left: 0,
+                    top: 300
+                });
+                btn.animate({
+                    left: 0,
+                    top: 0
+
+                });
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
